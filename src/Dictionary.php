@@ -33,7 +33,12 @@ class Dictionary implements DictionaryInterface
 
     public function getEntries(): array
     {
-        return $this->entries;
+        $entries = [];
+        /* @var $entry EntryInterface */
+        foreach ($this->entries as $entry) {
+            $entries[$entry->getKey()] = $entry->getValues();
+        }
+        return $entries;
     }
 
     public function setEntries(array $entries)
@@ -49,13 +54,13 @@ class Dictionary implements DictionaryInterface
         }
     }
 
-    public function setEntry(EntryInterface $entry)
+    public function addEntry(EntryInterface $entry)
     {
         $key = $entry->getKey();
         $this->entries[$key] = $entry;
     }
 
-    private function isKeyInEntries($key)
+    private function isKeyInEntries($key) :bool
     {
         try {
             if (!array_key_exists($key, $this->entries)) {
@@ -66,6 +71,7 @@ class Dictionary implements DictionaryInterface
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
+        return false;
     }
 
     public function getEntry(string $key): EntryInterface
@@ -73,6 +79,7 @@ class Dictionary implements DictionaryInterface
         if ($this->isKeyInEntries($key)) {
             return $this->entries[$key];
         }
+        return new NullEntry();
     }
 
     public function deleteEntry(string $key)
@@ -81,5 +88,4 @@ class Dictionary implements DictionaryInterface
             unset($this->entries[$key]);
         }
     }
-
 }

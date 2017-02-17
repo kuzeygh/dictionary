@@ -12,7 +12,7 @@ interface DictionaryInterface
 
     function getEntries(): array;
 
-    function setEntry(EntryInterface $entry);
+    function addEntry(EntryInterface $entry);
 
     function getEntry(string $key): EntryInterface;
 
