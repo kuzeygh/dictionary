@@ -17,4 +17,12 @@ $şey = new \MidoriKocak\Entry('şey', 'ismi olmayan nesne');
 $dictionary->addEntry($nesne);
 $dictionary->addEntry($şey);
 
-print_r($dictionary->getEntries());
+$entries = $dictionary->getEntries();
+
+
+if(json_decode(@file_get_contents('../data/dictionary.json')) !== $entries){
+    file_put_contents('../data/dictionary.json', json_encode($entries, JSON_UNESCAPED_UNICODE));
+}
+
+$fromFile = json_decode(file_get_contents('../data/dictionary.json'), true);
+print_r($fromFile);

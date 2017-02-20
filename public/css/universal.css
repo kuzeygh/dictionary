@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+h2, h3 {
+    padding-bottom: 1rem;
+}
+
+h1 {
+    padding-left: 1rem;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 100vh;
+    background-color: #f5f8fa;
+    font-family: 'Roboto', sans-serif;
+}
+
+header, footer {
+    flex: 0 0 auto;
+    padding: 1rem;
+}
+
+footer {
+    background-color: white;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    margin-bottom: 0.5rem;
+    justify-content: space-between;
+}
+
+header a {
+    color: white;
+}
+
+header > h1 {
+    flex: 7;
+}
+
+header > nav {
+    flex: 15;
+}
+
+header > nav > ul {
+    float: right;
+}
+
+section, aside {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+aside {
+    flex: 7;
+    background-color: white;
+    margin: 0.5rem;
+}
+
+section {
+    flex: 15;
+    background-color: white;
+    margin: 0.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+ul.midori-navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Style the links inside the list items */
+ul.midori-navigation li a {
+    display: inline-block;
+    text-align: center;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+/* Float the list items side by side */
+ul.midori-navigation li {
+    float: left;
+    margin: 0;
+}
+
+ul.midori-navigation.vertical {
+    position: relative;
+}
+
+ul.midori-navigation.vertical li {
+    float: none;
+    display: inline;
+    text-align: left;
+}
+
+ul.midori-navigation.vertical li a {
+    display: block;
+    text-align: left;
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width: 680px) {
+    main {
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    h1 {
+        padding: 0;
+    }
+
+    ul.midori-navigation.horizontal {
+        position: relative;
+    }
+
+    ul.midori-navigation.horizontal li {
+        float: none;
+        text-align: center;
+        display: inline;
+    }
+
+    ul.midori-navigation.horizontal li a {
+        display: block;
+        text-align: center;
+    }
+
+    ul.midori-navigation.vertical li a {
+        display: block;
+        text-align: center;
+    }
+}
