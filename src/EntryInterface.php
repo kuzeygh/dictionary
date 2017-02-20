@@ -2,22 +2,21 @@
 
 namespace MidoriKocak;
 
-
 interface EntryInterface
 {
-    function setKey(string $key);
+    public function setKey(string $key);
 
-    function getKey(): string;
+    public function getKey(): string;
 
-    function setValues(array $values);
+    public function setValues(array $values);
 
-    function getValues(): array;
+    public function getValues(): array;
 
-    function getValue(int $order): string;
+    public function getValue(int $order): string;
 
-    function setValue(int $order, string $newValue);
+    public function setValue(int $order, string $newValue);
 
-    function addValue(string $value);
+    public function addValue(string $value);
 
-    function deleteValue(int $order);
+    public function deleteValue(int $order);
 }

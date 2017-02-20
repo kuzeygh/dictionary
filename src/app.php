@@ -26,7 +26,6 @@ try {
 
     $fromFile = json_decode(file_get_contents('../data/dictionary.json'), true);
     print_r($fromFile);
-
 } catch (Exception $e) {
     echo 'Error on line '.$e->getLine().' in '.$e->getFile()
         .': <b>'.$e->getMessage();

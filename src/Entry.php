@@ -2,7 +2,6 @@
 
 namespace MidoriKocak;
 
-
 class Entry implements EntryInterface
 {
     private $key;

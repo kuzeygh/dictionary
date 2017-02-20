@@ -4,17 +4,17 @@ namespace MidoriKocak;
 
 interface DictionaryInterface
 {
-    function setTitle(string $title);
+    public function setTitle(string $title);
 
-    function getTitle(): string;
+    public function getTitle(): string;
 
-    function setEntries(array $array);
+    public function setEntries(array $array);
 
-    function getEntries(): array;
+    public function getEntries(): array;
 
-    function addEntry(EntryInterface $entry);
+    public function addEntry(EntryInterface $entry);
 
-    function getEntry(string $key): EntryInterface;
+    public function getEntry(string $key): EntryInterface;
 
-    function deleteEntry(string $key);
+    public function deleteEntry(string $key);
 }
