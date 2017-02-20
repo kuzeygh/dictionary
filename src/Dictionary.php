@@ -15,14 +15,10 @@ class Dictionary implements DictionaryInterface
 
     public function setTitle(string $title)
     {
-        try {
-            if (($title != "") && (strlen($title) <= 70)) {
-                $this->title = $title;
-            } else {
-                throw new \InvalidArgumentException('Wrong title value.');
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        if (($title != "") && (strlen($title) <= 70)) {
+            $this->title = $title;
+        } else {
+            throw new \InvalidArgumentException('Wrong title value.');
         }
     }
 
@@ -43,14 +39,10 @@ class Dictionary implements DictionaryInterface
 
     public function setEntries(array $entries)
     {
-        try {
-            if (!empty($entries)) {
-                $this->entries = $entries;
-            } else {
-                throw new \InvalidArgumentException('Array cannot be empty.');
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        if (!empty($entries)) {
+            $this->entries = $entries;
+        } else {
+            throw new \InvalidArgumentException('Array cannot be empty.');
         }
     }
 
@@ -62,16 +54,11 @@ class Dictionary implements DictionaryInterface
 
     private function isKeyInEntries($key) :bool
     {
-        try {
-            if (!array_key_exists($key, $this->entries)) {
-                throw new \OutOfBoundsException('Cannot find entry in dictionary');
-            } else {
-                return true;
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        if (!array_key_exists($key, $this->entries)) {
+            throw new \OutOfBoundsException('Cannot find entry in dictionary');
+        } else {
+            return true;
         }
-        return false;
     }
 
     public function getEntry(string $key): EntryInterface

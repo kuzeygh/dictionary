@@ -17,14 +17,10 @@ class Entry implements EntryInterface
 
     public function setKey(string $key)
     {
-        try {
-            if (($key != "") && (strlen($key) <= 70)) {
-                $this->key = $key;
-            } else {
-                throw new \InvalidArgumentException('Wrong key title.');
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        if (($key != "") && (strlen($key) <= 70)) {
+            $this->key = $key;
+        } else {
+            throw new \InvalidArgumentException('Wrong key title.');
         }
     }
 
@@ -35,14 +31,10 @@ class Entry implements EntryInterface
 
     public function setValues(array $values)
     {
-        try {
-            if (!empty($values)) {
-                $this->values = $values;
-            } else {
-                throw new \InvalidArgumentException('Array cannot be empty.');
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        if (!empty($values)) {
+            $this->values = $values;
+        } else {
+            throw new \InvalidArgumentException('Array cannot be empty.');
         }
     }
 
@@ -53,16 +45,18 @@ class Entry implements EntryInterface
 
     private function isOrderInValues($order)
     {
-        try {
-            if (!array_key_exists($order, $this->values)) {
-                throw new \OutOfBoundsException('Cannot find entry in dictionary');
-            } else {
-                return true;
-            }
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        if (!array_key_exists($order, $this->values)) {
+            throw new \OutOfBoundsException('Cannot find entry in dictionary');
+        } else {
+            return true;
         }
-        return false;
+    }
+
+    public function setValue(int $order, string $newValue)
+    {
+        if ($this->isOrderInValues($order)) {
+            $this->values[$order] = $newValue;
+        }
     }
 
     public function getValue(int $order): string
@@ -71,13 +65,6 @@ class Entry implements EntryInterface
             return $this->values[$order];
         }
         return "";
-    }
-
-    public function setValue(int $order, string $newValue)
-    {
-        if ($this->isOrderInValues($order)) {
-            $this->values[$order] = $newValue;
-        }
     }
 
     public function addValue(string $value)
