@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Layout Example</title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/universal.css">
+</head>
+<body>
+<header>
+    <h1>Title</h1>
+    <nav>
+        <ul class="list horizontal">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <aside>
+        <nav>
+            <ul class="list vertical">
+                <li><a href="#">App</a></li>
+                <li><a href="#">Asset</a></li>
+                <li><a href="#">Item</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <section>
+        <h2>Title 2</h2>
+        <form>
+            <label for="name">Name</label>
+            <input class="form-control" type="text" id="name">
+
+            <label for="email">Email address</label>
+            <input class="form-control" type="email" id="email">
+
+            <label>
+                <input type="checkbox"> Remember me
+            </label>
+
+            <label>
+                <input type="radio" id="herp" name="herpderp" checked> Herp
+            </label>
+            <label>
+                <input type="radio" id="derp" name="herpderp"> Derp
+            </label>
+
+            <button class="btn" type="submit">Submit</button>
+            <input type="submit" value="Send">
+            <input type="reset" value="Reset">
+        </form>
+
+        <form>
+            <fieldset>
+                <input type="hidden" id="id" name="id">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Meal Name" id="name" name="name">
+                <label for="date">Date - Time</label>
+                <input type="date" placeholder="Set Date" id="date" name="date">
+                <input type="time" placeholder="Set Time" id="time" name="time">
+                <label for="calories">Calories</label>
+                <input type="number" placeholder="Calories" min="0" max="5000" id="calories" name="calories">
+                <input type="submit" value="Send">
+                <input type="reset" value="Reset">
+            </fieldset>
+        </form>
+    </section>
+</main>
+<footer>
+    <h3>footer</h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+        dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+        anim id est laborum.
+    </p>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

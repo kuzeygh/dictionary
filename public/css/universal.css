@@ -94,7 +94,7 @@ main {
     padding-left: 0.5rem;
 }
 
-ul.midori-navigation {
+ul.list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -102,7 +102,7 @@ ul.midori-navigation {
 }
 
 /* Style the links inside the list items */
-ul.midori-navigation li a {
+ul.list li a {
     display: inline-block;
     text-align: center;
     padding: 0.8rem 1rem;
@@ -112,22 +112,22 @@ ul.midori-navigation li a {
 }
 
 /* Float the list items side by side */
-ul.midori-navigation li {
+ul.list li {
     float: left;
     margin: 0;
 }
 
-ul.midori-navigation.vertical {
+ul.list.vertical {
     position: relative;
 }
 
-ul.midori-navigation.vertical li {
+ul.list.vertical li {
     float: none;
     display: inline;
     text-align: left;
 }
 
-ul.midori-navigation.vertical li a {
+ul.list.vertical li a {
     display: block;
     text-align: left;
 }
@@ -146,23 +146,55 @@ ul.midori-navigation.vertical li a {
         padding: 0;
     }
 
-    ul.midori-navigation.horizontal {
+    ul.list.horizontal {
         position: relative;
     }
 
-    ul.midori-navigation.horizontal li {
+    ul.list.horizontal li {
         float: none;
         text-align: center;
         display: inline;
     }
 
-    ul.midori-navigation.horizontal li a {
+    ul.list.horizontal li a {
         display: block;
         text-align: center;
     }
 
-    ul.midori-navigation.vertical li a {
+    ul.list.vertical li a {
         display: block;
         text-align: center;
     }
+}
+
+/* Forms */
+
+form{
+    margin-top: 1rem;
+}
+
+input{
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    padding:0.5rem;
+}
+
+input:not([type='radio']):not([type='checkbox']):not([type='select']):not([type='submit']):not([type='reset']) {
+    width: 100%;
+    height: 2rem;
+}
+
+input[type='submit'], input[type='reset'], button{
+    height: 2rem;
+    padding: 0.5rem;
+    border:none;
+}
+
+label{
+    display: block;
+
+}
+
+fieldset{
+    border:none;
 }
