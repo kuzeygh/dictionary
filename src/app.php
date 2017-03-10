@@ -29,11 +29,9 @@ try {
     $fromFile = json_decode(file_get_contents('../data/dictionary.json'), true);
 
     $entries = $dictionary->getEntries();
+    $dictionaryView = new \MidoriKocak\DictionaryView($dictionary, new \MidoriKocak\EntryView());
 
-    foreach ($entries as $entry) {
-        $entryView = new \MidoriKocak\EntryView($entry);
-        echo $entryView->render();
-    }
+    echo $dictionaryView->render();
 
     //print_r($fromFile);
 
