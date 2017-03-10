@@ -20,6 +20,10 @@ class EntryView
 
     public function render()
     {
+        if (!isset($this->entry)) {
+            throw new \Exception('Cannot render without entry');
+        }
+
         $title = "<h3>" . $this->entry->getKey() . "</h3>";
         $values = $this->entry->getValues();
         $list = "";

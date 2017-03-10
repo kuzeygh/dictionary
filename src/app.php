@@ -36,6 +36,6 @@ try {
     //print_r($fromFile);
 
 } catch (Exception $e) {
-    echo 'Error on line '.$e->getLine().' in '.$e->getFile()
-        .': <b>'.$e->getMessage();
+    echo 'Error on line ' . $e->getLine() . ' in ' . $e->getFile()
+        . ': <b>' . $e->getMessage();
 }
