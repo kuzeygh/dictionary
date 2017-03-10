@@ -27,7 +27,7 @@ class Dictionary implements DictionaryInterface
         return $this->title;
     }
 
-    public function getEntries(): array
+    public function getEntriesAsArray(): array
     {
         $entries = [];
         /* @var $entry EntryInterface */
@@ -35,6 +35,11 @@ class Dictionary implements DictionaryInterface
             $entries[$entry->getKey()] = $entry->getValues();
         }
         return $entries;
+    }
+
+    public function getEntries(): array
+    {
+        return $this->entries;
     }
 
     public function setEntries(array $entries)
