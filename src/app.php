@@ -25,7 +25,7 @@ try {
 
     $dictionaryView = new \MidoriKocak\View();
 
-    //$dictionaryView->set('dictionary', $dictionary);
+    $dictionaryView->set('dictionary', $dictionary);
 
     echo $dictionaryView->render('dictionary');
 
