@@ -7,24 +7,24 @@ class DictionaryView
     private $dictionary;
     private $entryView;
 
-    public function __construct(DictionaryInterface $dictionary, EntryView $entryView)
+    public function __construct(DictionaryInterface $dictionary)
     {
         $this->dictionary = $dictionary;
-        $this->entryView = $entryView;
+    }
+
+    private function template(DictionaryInterface $dictionary)
+    {
+        ob_start();
+        require 'Template/dictionary.php';
+        return ob_get_clean();
     }
 
     public function render()
     {
-        $title = "<h2>" . $this->dictionary->getTitle() . "<h2>";
-        $entries = $this->dictionary->getEntries();
-        $list = "";
-        foreach ($entries as $entry) {
-            $this->entryView->setEntry($entry);
-            $list .= $this->entryView->render();
+        if (!isset($this->dictionary)) {
+            throw new \Exception('Cannot render without dictionary');
         }
 
-        $result = "<p class='dictionary'>" . $title . $list . "</p>";
-
-        return $result;
+        return $this->template($this->dictionary);
     }
 }

@@ -4,8 +4,7 @@ require_once 'DictionaryInterface.php';
 require_once 'Dictionary.php';
 require_once 'EntryInterface.php';
 require_once 'Entry.php';
-require_once 'EntryView.php';
-require_once 'DictionaryView.php';
+require_once 'View.php';
 
 try {
     $dictionary = new MidoriKocak\Dictionary("Nesne Yönelimli Programlama Sözlüğü");
@@ -22,20 +21,15 @@ try {
 
     $entriesArray = $dictionary->getEntriesAsArray();
 
-    if (json_decode(@file_get_contents('../data/dictionary.json')) !== $entriesArray) {
-        file_put_contents('../data/dictionary.json', json_encode($entriesArray, JSON_UNESCAPED_UNICODE));
-    }
-
-    $fromFile = json_decode(file_get_contents('../data/dictionary.json'), true);
-
     $entries = $dictionary->getEntries();
-    $dictionaryView = new \MidoriKocak\DictionaryView($dictionary, new \MidoriKocak\EntryView());
 
-    echo $dictionaryView->render();
+    $dictionaryView = new \MidoriKocak\View();
 
-    //print_r($fromFile);
+    //$dictionaryView->set('dictionary', $dictionary);
 
-} catch (Exception $e) {
+    echo $dictionaryView->render('dictionary');
+
+} catch (Exception | Error $e) {
     echo 'Error on line ' . $e->getLine() . ' in ' . $e->getFile()
         . ': <b>' . $e->getMessage();
 }
