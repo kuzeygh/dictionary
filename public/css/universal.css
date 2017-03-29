@@ -14,7 +14,8 @@ html, body {
 }
 
 h2, h3 {
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    padding-top: 1rem;
 }
 
 h1 {
@@ -221,4 +222,23 @@ th:first-child {
 td:last-child,
 th:last-child {
     padding-right: 0;
+}
+
+ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+ol {
+    list-style-type: decimal;
+    list-style-position: inside;
+}
+ul ul, ol ul {
+    list-style-type: circle;
+    list-style-position: inside;
+    margin-left: 15px;
+}
+ol ol, ul ol {
+    list-style-type: lower-latin;
+    list-style-position: inside;
+    margin-left: 15px;
 }
